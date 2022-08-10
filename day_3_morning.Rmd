@@ -8,6 +8,8 @@ output: html_document
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, messege = FALSE)
 library(tidyverse)
+library(palmerpenguins)
+
 ```
 
 ### 'if' Statements
@@ -73,7 +75,43 @@ if (marmot < 0.5){
 }
 
 
+```
+```{r}
+
+
+for (i in seq_along(penguins)) {
+  if (is.numeric(penguins[[i]])) {
+    penguin_med <- median(penguins[[i]], na.rm = TRUE)
+    print(penguin_med)
+  }
+}
+
+apply(mtcars, 2,  mean)
+
+penguins %>% mutate(across(c(species, island), toupper))
+
+print(penguins)
+
 
 
 ```
+
+group by and summarize group_by() %>% summarize 
+
+
+```{r}
+penguins |>
+  group_by(species, island) |>
+  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
+            sd_bill_length = sd(bill_length_mm, na.rm = TRUE),
+            n = n())
+
+
+
+penguins |>
+  group_by(species, island) |>
+  summarize()
+```
+
+
 
