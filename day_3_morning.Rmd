@@ -1,0 +1,79 @@
+---
+title: "Day 3 - Conitionals & Loops"
+author: "Atahualpa Ayala"
+date: '2022-08-10'
+output: html_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, messege = FALSE)
+library(tidyverse)
+```
+
+### 'if' Statements
+
+```{r}
+burrito <- 2.4
+
+if (burrito > 2) {
+  print("I love burritos!")
+}
+
+```
+
+### 'str_detect'  
+
+```{r}
+my_ship <- c("Millenium Falcon", "X-wing", "Tie-Fieghter", "Death Star")
+
+str_detect(my_ship, pattern = "r")
+
+#str_detect is case sencitve
+
+tatooine_characters <- starwars |> 
+  filter(homeworld == "Tatooine")
+
+# Use %in% operator fo check for muultiples positive matches
+tatooine_endor_naboo <- starwars |>
+  filter(homeworld %in% C("Tatooine", "Naboo", "Endor"))
+# In words: Does the value in the homeworld variable for that 
+
+str_detect(my_ships, pattern = "x")
+
+phrase <- "I love burritos!"
+
+if (str_detect(phrase, "love")){
+  print ("I am a burrito fan.")
+  }
+
+```
+
+### 'if-else' statement
+```{r}
+pika <- 89.1
+
+if (pika > 60){
+  print ("miga pika")
+} else {
+  print ("normal pika")
+}
+
+```
+
+```{r}
+marmot <- 2.8
+
+if (marmot < 0.5){
+  print ("this is a small marmot")
+
+} else if (marmot >= 0.5 & marmot >3) {
+  print ("this is a medium marmot")
+} else (marmot < 3){
+  print ("this is a GG marmot")
+}
+
+
+
+
+```
+
